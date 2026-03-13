@@ -5,7 +5,7 @@ Creates a standerdised structure and set of rules when establishing a new resear
 ## Usage
 
 ```
-/newproject my-project-name
+/projectsetup my-project-name
 ```
 
 ## What It Creates
