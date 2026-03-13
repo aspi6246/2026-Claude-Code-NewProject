@@ -36,10 +36,10 @@ Claude's role is as a **thinking partner** for Alessandro. Alessandro goal is to
 
 ## Code Conventions
 
-- **Reference code**: `Code/From iHPC/` contains copies of the analysis scripts that run on the iHPC server. These are read-only references — file paths in them do not match the Dropbox folder. Use them to understand the analysis being done.
-- **New scripts**: Any code Claude creates goes in `Code/` and must be named `Claude_XXXX.Rmd` (e.g., `Claude_summary_stats.Rmd`).
-- **Used scripts**: Any R files used by Claude get moved to `Code/Claude Logs/`) after they have been run. 
-
+- **Reference code**: `Code/` contains copies of all markdown files that produce the figures and tables. Any code Claude creates goes in `Code/` and must be named `Claude_XXXX.Rmd` (e.g., `Claude_summary_stats.Rmd`).
+- **Purled code** Purled `.R` files from the main `Code/` `.Rmd` scripts, plus temporary experiment files. These are working copies for non-interactive execution; the canonical source is always the `.Rmd` in `Code/`. 
+- **Used scripts**: Any R files no longer used by Claude, or superseded by new versions, get moved to `Code/Claude Logs/_Archive`)
+- **Notes**: `Code/Claude Logs/README.md' file in this folder contains brief summary of what each file does.
 ---
 
 ## Output Conventions
@@ -47,13 +47,14 @@ Claude's role is as a **thinking partner** for Alessandro. Alessandro goal is to
 - **Tables**: Save all table outputs to `Output/Tables/`
 - **Figures**: Save all figure outputs to `Output/Figures/`
 - **Claude scripts**: Save to `Code/` (named `Claude_XXXX.Rmd`)
-- **Session logs**: Save to `Code/Claude Logs/Session Logs/`
+- **Claude purled scripts**: Save to `Code/_Claude Scripts` (named `Claude_XXXX.R`)
+- **Session logs**: Save to `Code/_Claude Logs/`
 
 ---
 
 ## Progress Logs
 
-- **Location**: `Code/Claude Logs/Session Logs/`
+- **Location**: `Code/_Claude Logs/`
 - **Purpose**: Track all work done across sessions so new conversations can quickly understand prior progress
 - **Convention**: One file per session, named `YYYY-MM-DD_SessionN_Progress.md`
 - **Workflow**: At the end of each session (or when starting a new one), create/update the progress log with everything accomplished
@@ -63,11 +64,11 @@ Claude's role is as a **thinking partner** for Alessandro. Alessandro goal is to
 
 ## Project Context
 
-- **Project**: The (Social) Cost of Strategic Default
-- **Authors**: Alessandro Spina, Sascha Steffen, Daniel Streitz
-- **Topic**: Strategic divestiture of aging oil & gas wells to smaller operators who later default on environmental cleanup obligations (orphaned wells)
-- **Primary dataset**: `Data/WellDatabase/Processed Data/well_year_panel_Nov24th2025.zip`
-- **Code**: R Markdown files in `Code/`; main analysis runs on iHPC server
-- **Paper**: LaTeX in `Paper - Github/2025-Strategic-Defaulting/`
+- **Project**: XXXX
+- **Authors**: XXX
+- **Topic**: XXXX
+- **Primary dataset**: `INSERT FILE PATH`
+- **Code**: R Markdown files in `Code/`
+- **Paper**: LaTeX in: `INSERT FILE PATH`
 - **Key libraries**: fixest, arrow, data.table
 - **Full directory documentation**: See `README.md`
