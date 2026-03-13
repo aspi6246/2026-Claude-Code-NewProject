@@ -15,11 +15,12 @@ my-project-name/
 ├── CLAUDE.md              # Research rules & estimation philosophy (permanent)
 ├── README.md              # This file — project-specific notes
 ├── Code/
-│   ├── _Archive/                 # Old scripts are moved here when replaced by an updated script or no-longer used
+│   ├── _Archive/                 # Old .rmd scripts are moved here when replaced by an updated script or no-longer used
 │   ├── _Claude Logs/             # This directory contains all saved session logs. The logs keep a history of what has been done in previous sessions. Should be updated each session. Logs are named as 'YYYY-MM-DD_SessionXX'.
-│   └── _Claude Scripts             # While all .rmd files are in the main code/ folder, the _Claude Scripts/ sub-folder is for any purled R scripts run by Claude. 
+│   └── _Claude Scripts           # While all .rmd files are in the main code/ folder, the _Claude Scripts/ sub-folder is for any purled .R scripts created and run by Claude. 
+|            ├── _Archive/         # Old purled .R scripts are moved here when replaced by an updated script or no-longer used
 ├── Data/
-│   ├── Raw/                  # Original source data (never modify these)
+│   ├── Raw/                   # Original source data (never modify these)
 │   └── Processed/             # Data sets which are output from the code in code\ folder
 │          ├── _Archive/        # Old Processed data are moved here when replaced by an updated script or no-longer used
 ├── Output/
@@ -28,7 +29,7 @@ my-project-name/
 │   └── Figures/           # Generated figures (PDF, PNG)
 │          ├── _Archive/        # Old figures are moved here when replaced by an updated script or no-longer used
 ├── Literature/             # Outside papers and PDFs (split with /split-pdf)
-├── Paper/                 #This folder will contain a sub-folder linked to a github repo where the paper is updated from Overleaf
+├── Paper/                 # This folder will contain a sub-folder linked to a github repo where the paper is updated from Overleaf
 ├── Admin/                 # Other notes, ideas, miscellaneous
 
 ```
