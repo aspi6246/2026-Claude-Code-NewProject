@@ -149,6 +149,14 @@ Scripts run in numbered order:
 |--------|-------|--------|-------------|
 | ``01_XXXX.Rmd`` | ``Data\Raw\XXXX`` | ``Data\Processed\XXXX`` | XXXX |
 
+
+## Paper Workflow
+The active paper lives in `Paper Github/`, which is a Git clone of:
+
+```
+INSERT LINK
+```
+
 ## Notes
 
 XXXX
