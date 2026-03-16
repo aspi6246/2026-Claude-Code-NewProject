@@ -1,0 +1,41 @@
+# ---- R / RStudio ----
+.Rhistory
+.Rdata
+.RData
+.Ruserdata
+.Rproj.user/
+*_cache/
+*_files/
+*.Rproj
+
+# ---- Data files (large) ----
+# Uncomment these if your data is too large for Git.
+# Track them separately (e.g., Dropbox, S3, institutional storage).
+# *.parquet
+# *.csv
+# *.dta
+# *.sas7bdat
+# *.rds
+
+# ---- Output files (reproducible from code) ----
+# Uncomment if you prefer to regenerate rather than track these.
+# Output/Tables/*
+# Output/Figures/*
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+
+# ---- LaTeX build artifacts ----
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
