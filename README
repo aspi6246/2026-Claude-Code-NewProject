@@ -1,6 +1,6 @@
 # Claude Code Tools and Notes for Empirical Research
 
-A collection of templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who use R and want a reproducible project structure that maintains continuity across Claude Code sessions.
+Templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who use R, work with large datasets, and want a reproducible project structure that maintains continuity across Claude Code sessions.
 
 ## The Problem This Solves
 
@@ -8,61 +8,96 @@ Claude Code sessions don't persist. Every time you start a new conversation, Cla
 
 This repo provides two things to fix that:
 
-1. **A `CLAUDE.md` template** — a set of permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
+1. **A `CLAUDE_TEMPLATE.md`** — a set of permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
 
-2. **A project setup script** — a bash script that creates a standardised directory structure for an empirical research project, copies in the templates, and gives you a clean starting point.
+2. **A project setup script** — available in both PowerShell (Windows) and Bash (Mac/Linux). It creates a standardised directory structure, copies in the template files, and gives you a clean starting point.
 
 ## What's in This Repo
 
 ```
-├── README.md                       # This file
-├── setup_project.ps1                # Bash script to create a new project (Windows users)
-├── setup_project.sh                # Bash script to create a new project (Mac users)
-├── templates/
-│   ├── CLAUDE.md                   # Template: Claude Code session instructions
-│   └── gitignore_template          # Template: .gitignore for R research projects
+├── README.md                  # This file
+├── CLAUDE_TEMPLATE.md         # Template: Claude Code session instructions
+├── gitignore_template         # Template: .gitignore for R research projects
+├── setup_project.ps1          # Setup script for Windows (PowerShell)
+├── setup_project.sh           # Setup script for Mac/Linux (Bash)
+└── PowerShell_Setup_Guide.md  # Detailed step-by-step Windows walkthrough
 ```
+
+---
 
 ## Quick Start
 
-### 1. Clone this repo somewhere convenient
+### 1. Install Git (if you don't have it)
 
-```bash
-git clone https://github.com/aspi6246/2026-Claude-Code-Tools-and-Notes.git ~/Templates/claude-tools
+- **Windows:** Download from https://git-scm.com/download/win and run the installer. Accept all defaults.
+- **Mac:** Open Terminal and type `git --version`. If it's not installed, macOS will prompt you to install it.
+
+### 2. Clone this repo somewhere convenient
+
+**PowerShell (Windows):**
+```powershell
+git clone https://github.com/aspi6246/2026-Claude-Code-NewProject.git "$HOME\Templates\claude-tools"
 ```
 
-### 2. Create a new project
-
+**Bash (Mac/Linux):**
 ```bash
-bash ~/Templates/claude-tools/setup_project.sh My-New-Project ~/Dropbox/Research
+git clone https://github.com/aspi6246/2026-Claude-Code-NewProject.git ~/Templates/claude-tools
 ```
 
-This creates the full directory structure at `~/Dropbox/Research/My-New-Project/`, copies in the `CLAUDE.md` template and `.gitignore`, creates a starter `README.md`, and adds `.gitkeep` files so Git preserves empty directories.
+### 3. (Windows only) Allow PowerShell to run scripts
 
-### 3. Fill in the placeholders
+PowerShell blocks scripts by default. Run this once:
 
-Open `CLAUDE.md` in the new project and replace every `XXXX`, `AUTHOR_NAME`, and `INSERT` placeholder with the actual project details — title, authors, dataset paths, research question, etc.
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
-Do the same for `README.md`.
+Type `Y` when prompted.
 
-### 4. Initialise Git and start working
+### 4. Create a new project
 
+**PowerShell (Windows):**
+```powershell
+& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+```
+
+**Bash (Mac/Linux):**
 ```bash
-cd ~/Dropbox/Research/My-New-Project
-git init
-git add -A
-git commit -m "Initial project structure"
+bash ~/Templates/claude-tools/setup_project.sh My-New-Paper ~/Dropbox/Research
+```
+
+This creates the full project directory structure, copies in the CLAUDE.md template and .gitignore, creates a starter README.md, and adds .gitkeep files so Git preserves empty directories.
+
+### 5. Fill in the placeholders
+
+Open `CLAUDE.md` in the new project folder (RStudio, VS Code, or any text editor) and replace every `XXXX`, `AUTHOR_NAME`, and `INSERT` with the real project details. Do the same for `README.md`.
+
+### 6. Initialise Git and start working
+
+**PowerShell:**
+```powershell
+cd "C:\Users\163178\Dropbox\1. Projects with Claude access\My-New-Paper"
+git init; git add -A; git commit -m "Initial project structure"
 claude
 ```
 
-Claude will read `CLAUDE.md` automatically and follow the rules you've set.
+**Bash:**
+```bash
+cd ~/Dropbox/Research/My-New-Paper
+git init && git add -A && git commit -m "Initial project structure"
+claude
+```
+
+Claude reads your CLAUDE.md automatically. You're working.
+
+---
 
 ## The Project Structure
 
 Every project created by the setup script has this layout:
 
 ```
-My-New-Project/
+My-New-Paper/
 ├── CLAUDE.md                  # Instructions for Claude (read every session)
 ├── README.md                  # Project overview for humans
 ├── .gitignore                 # Keeps build artifacts and large files out of Git
@@ -81,13 +116,13 @@ My-New-Project/
 │   └── Figures/               # PDFs, PNGs
 │       └── _Archive/
 ├── Literature/                # Reference papers and data documentation
-├── Paper/                     # LaTeX paper, presentations and .bib files
+├── Paper/                     # LaTeX paper and .bib files
 └── Admin/                     # Notes, ideas, miscellaneous
 ```
 
 ### Key Design Decisions
 
-**`_Archive/` subfolders instead of deletion.** Nothing is ever deleted. When a script, dataset, or output is superseded, it gets moved to the `_Archive/` folder within the same directory. This means you can always recover old work.
+**`_Archive/` subfolders instead of deletion.** Nothing is ever deleted. When a script, dataset, or output is superseded, it gets moved to the `_Archive/` folder within the same directory. You can always recover old work.
 
 **`_Claude Logs/` for session continuity.** At the end of each Claude Code session, Claude writes a progress log documenting what was done, what decisions were made, and what's still pending. The next session reads these logs first, so context carries over even though Claude's memory doesn't.
 
@@ -97,7 +132,7 @@ My-New-Project/
 
 ## How the CLAUDE.md Template Works
 
-The `CLAUDE.md` file is the most important piece. Claude Code automatically reads any `CLAUDE.md` file in the project root at the start of a session. The template includes:
+Claude Code automatically reads any `CLAUDE.md` file in the project root at the start of a session. The template includes:
 
 - **Session startup checklist** — tells Claude to read progress logs before doing anything
 - **Ground rules** — don't delete files, don't touch raw data, always confirm before acting
@@ -106,14 +141,20 @@ The `CLAUDE.md` file is the most important piece. Claude Code automatically read
 - **Output conventions** — where tables, figures, and scripts go
 - **Progress log protocol** — how to write and name session logs
 
-You should customise this for each project. The template has placeholder text (`XXXX`, `AUTHOR_NAME`) that you fill in.
+You customise this for each project by filling in the placeholder text (`XXXX`, `AUTHOR_NAME`).
 
 ## Requirements
 
-- Bash (macOS, Linux, or WSL on Windows)
 - Git
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (for the AI-assisted workflow; the project structure works without it too)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
+- **Windows:** PowerShell (already installed on all Windows machines)
+- **Mac/Linux:** Bash (already installed)
+
+## Detailed Windows Walkthrough
+
+If you're new to Git and the command line, see `PowerShell_Setup_Guide.md` for a step-by-step guide covering everything from installing Git to creating your first project.
 
 ## Contributing
 
-This is a personal toolkit that I'm sharing publicly. If you have suggestions or find it useful, feel free to open an issue or fork it.
+This is a personal toolkit shared publicly. If you have suggestions or find it useful, feel free to open an issue or fork it.
+
