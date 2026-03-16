@@ -53,7 +53,7 @@ Claude's role is as a **thinking partner**. The goal is to publish this paper in
 ### Language and Style
 
 - All code is written in **R**, primarily using **R Markdown (`.Rmd`)** files.
-- Key libraries: `fixest`, `arrow`, `data.table`. Prefer these over alternatives (e.g., prefer `data.table` over `dplyr` for data manipulation, `fixest` over `lm`/`felm` for regressions).
+- Key libraries: `fixest`, `arrow`, `dplyr`. Prefer these over alternatives (e.g., prefer `dplyr` over `data.table` for data manipulation (unless data size calls for data.table), `fixest` over `lm`/`felm` for regressions).
 - Use `arrow::read_parquet()` or `arrow::open_dataset()` for large datasets. Avoid reading entire large files into memory when a filtered query will do.
 - Comment code clearly. Each code chunk in an `.Rmd` should have a brief comment explaining what it does and why.
 
