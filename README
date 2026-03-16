@@ -1,6 +1,6 @@
 # Claude Code Tools and Notes for Empirical Research
 
-Templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who use R, work with large datasets, and want a reproducible project structure that maintains continuity across Claude Code sessions.
+Templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who want a reproducible project structure that maintains continuity across Claude Code sessions.
 
 ## The Problem This Solves
 
@@ -16,11 +16,12 @@ This repo provides two things to fix that:
 
 ```
 ├── README.md                  # This file
-├── CLAUDE_TEMPLATE.md         # Template: Claude Code session instructions
-├── gitignore_template         # Template: .gitignore for R research projects
 ├── setup_project.ps1          # Setup script for Windows (PowerShell)
 ├── setup_project.sh           # Setup script for Mac/Linux (Bash)
 └── PowerShell_Setup_Guide.md  # Detailed step-by-step Windows walkthrough
+├── templates/
+│   ├── CLAUDE.md                   # Template: Claude Code session instructions
+│   └── gitignore_template          # Template: .gitignore for R research projects
 ```
 
 ---
@@ -147,8 +148,8 @@ You customise this for each project by filling in the placeholder text (`XXXX`, 
 
 - Git
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
-- **Windows:** PowerShell (already installed on all Windows machines)
-- **Mac/Linux:** Bash (already installed)
+- **Windows:** PowerShell 
+- **Mac/Linux:** Bash 
 
 ## Detailed Windows Walkthrough
 
