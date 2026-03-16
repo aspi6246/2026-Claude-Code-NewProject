@@ -54,13 +54,14 @@ Using File Explorer, navigate to `C:\Users\163178\Templates\claude-tools\` and a
 claude-tools\
 ├── README.md
 ├── PowerShell_Setup_Guide.md
-├── CLAUDE_TEMPLATE.md
-├── gitignore_template
 ├── setup_project.ps1
 └── setup_project.sh
+└── templates\
+    ├── CLAUDE.md
+    └── gitignore_template
 ```
 
-Everything sits at the root — no subfolders needed.
+
 
 ### Step 6 (optional): Push the updated repo to GitHub
 
@@ -86,15 +87,15 @@ Search "PowerShell" in the Windows Start menu and open it.
 ### Step 8: Run the setup script
 
 ```powershell
-& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-Oil-Gas-Paper" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
 ```
 
 This creates the full project at:
-`C:\Users\163178\Dropbox\1. Projects with Claude access\My-Oil-Gas-Paper\`
+`C:\Users\163178\Dropbox\1. Projects with Claude access\My-New-Paper\`
 
 with all folders, CLAUDE.md, README.md, and .gitignore ready to go.
 
-**Note on the project name:** Use hyphens or underscores, not spaces. `My-Oil-Gas-Paper` is good. `My Oil Gas Paper` will cause problems.
+**Note on the project name:** Use hyphens or underscores, not spaces. `My-New-Paper` is good. `My New Paper` will cause problems.
 
 ### Step 9: Fill in the placeholders
 
