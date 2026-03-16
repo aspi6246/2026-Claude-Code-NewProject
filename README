@@ -1,1 +1,118 @@
-This is a collection of tools, templates, and philosophies I've developed while using Claude Code.
+# Claude Code Tools and Notes for Empirical Research
+
+A collection of templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who use R and want a reproducible project structure that maintains continuity across Claude Code sessions.
+
+## The Problem This Solves
+
+Claude Code sessions don't persist. Every time you start a new conversation, Claude has no memory of what happened in the last one. If your project doesn't have clear structure and documentation, you lose time re-explaining context, Claude makes conflicting decisions across sessions, and things quietly break.
+
+This repo provides two things to fix that:
+
+1. **A `CLAUDE.md` template** — a set of permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
+
+2. **A project setup script** — a bash script that creates a standardised directory structure for an empirical research project, copies in the templates, and gives you a clean starting point.
+
+## What's in This Repo
+
+```
+├── README.md                       # This file
+├── setup_project.sh                # Bash script to create a new project
+├── templates/
+│   ├── CLAUDE.md                   # Template: Claude Code session instructions
+│   └── gitignore_template          # Template: .gitignore for R research projects
+```
+
+## Quick Start
+
+### 1. Clone this repo somewhere convenient
+
+```bash
+git clone https://github.com/aspi6246/2026-Claude-Code-Tools-and-Notes.git ~/Templates/claude-tools
+```
+
+### 2. Create a new project
+
+```bash
+bash ~/Templates/claude-tools/setup_project.sh My-New-Project ~/Dropbox/Research
+```
+
+This creates the full directory structure at `~/Dropbox/Research/My-New-Project/`, copies in the `CLAUDE.md` template and `.gitignore`, creates a starter `README.md`, and adds `.gitkeep` files so Git preserves empty directories.
+
+### 3. Fill in the placeholders
+
+Open `CLAUDE.md` in the new project and replace every `XXXX`, `AUTHOR_NAME`, and `INSERT` placeholder with the actual project details — title, authors, dataset paths, research question, etc.
+
+Do the same for `README.md`.
+
+### 4. Initialise Git and start working
+
+```bash
+cd ~/Dropbox/Research/My-New-Project
+git init
+git add -A
+git commit -m "Initial project structure"
+claude
+```
+
+Claude will read `CLAUDE.md` automatically and follow the rules you've set.
+
+## The Project Structure
+
+Every project created by the setup script has this layout:
+
+```
+My-New-Project/
+├── CLAUDE.md                  # Instructions for Claude (read every session)
+├── README.md                  # Project overview for humans
+├── .gitignore                 # Keeps build artifacts and large files out of Git
+├── Code/
+│   ├── _Archive/              # Superseded scripts (never deleted, moved here)
+│   ├── _Claude Logs/          # Session progress logs (key for continuity)
+│   └── _Claude Scripts/       # Purled .R copies of Claude's .Rmd scripts
+│       └── _Archive/
+├── Data/
+│   ├── Raw/                   # Original source data (permanently read-only)
+│   └── Processed/             # Cleaned and constructed datasets
+│       └── _Archive/
+├── Output/
+│   ├── Tables/                # LaTeX tables, CSVs
+│   │   └── _Archive/
+│   └── Figures/               # PDFs, PNGs
+│       └── _Archive/
+├── Literature/                # Reference papers and data documentation
+├── Paper/                     # LaTeX paper, presentations and .bib files
+└── Admin/                     # Notes, ideas, miscellaneous
+```
+
+### Key Design Decisions
+
+**`_Archive/` subfolders instead of deletion.** Nothing is ever deleted. When a script, dataset, or output is superseded, it gets moved to the `_Archive/` folder within the same directory. This means you can always recover old work.
+
+**`_Claude Logs/` for session continuity.** At the end of each Claude Code session, Claude writes a progress log documenting what was done, what decisions were made, and what's still pending. The next session reads these logs first, so context carries over even though Claude's memory doesn't.
+
+**`Data/Raw/` is read-only by convention.** Original data is never modified. All transformations happen in code and write to `Data/Processed/`. This keeps the pipeline reproducible.
+
+**Numbered scripts for pipeline order.** Scripts in `Code/` are prefixed `01_`, `02_`, etc. to indicate execution order. This makes the dependency chain explicit.
+
+## How the CLAUDE.md Template Works
+
+The `CLAUDE.md` file is the most important piece. Claude Code automatically reads any `CLAUDE.md` file in the project root at the start of a session. The template includes:
+
+- **Session startup checklist** — tells Claude to read progress logs before doing anything
+- **Ground rules** — don't delete files, don't touch raw data, always confirm before acting
+- **Working relationship** — defines Claude as a thinking partner who should push back and critique
+- **Code conventions** — R, data.table, fixest, arrow; naming conventions; pipeline structure
+- **Output conventions** — where tables, figures, and scripts go
+- **Progress log protocol** — how to write and name session logs
+
+You should customise this for each project. The template has placeholder text (`XXXX`, `AUTHOR_NAME`) that you fill in.
+
+## Requirements
+
+- Bash (macOS, Linux, or WSL on Windows)
+- Git
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (for the AI-assisted workflow; the project structure works without it too)
+
+## Contributing
+
+This is a personal toolkit that I'm sharing publicly. If you have suggestions or find it useful, feel free to open an issue or fork it.
