@@ -20,7 +20,7 @@ This repo provides two things to fix that:
 ├── setup_project.sh           # Setup script for Mac/Linux (Bash)
 └── PowerShell_Setup_Guide.md  # Detailed step-by-step Windows walkthrough
 ├── templates/
-│   ├── CLAUDE.md                   # Template: Claude Code session instructions
+│   ├── CLAUDE.md                   # Template: A template for Claude Code session instructions
 │   └── gitignore_template          # Template: .gitignore for R research projects
 ```
 
