@@ -16,7 +16,8 @@ This repo provides two things to fix that:
 
 ```
 ├── README.md                       # This file
-├── setup_project.sh                # Bash script to create a new project
+├── setup_project.ps1                # Bash script to create a new project (Windows users)
+├── setup_project.sh                # Bash script to create a new project (Mac users)
 ├── templates/
 │   ├── CLAUDE.md                   # Template: Claude Code session instructions
 │   └── gitignore_template          # Template: .gitignore for R research projects
