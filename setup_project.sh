@@ -28,8 +28,8 @@ if [ -z "$PROJECT_NAME" ]; then
     echo "Usage: bash setup_project.sh <project-name> [destination-path]"
     echo ""
     echo "Examples:"
-    echo "  bash setup_project.sh Oil-Gas-Production"
-    echo "  bash setup_project.sh Oil-Gas-Production ~/Dropbox/Research"
+    echo "  bash setup_project.sh My-New-Paper"
+    echo "  bash setup_project.sh My-New-Paper ~/Dropbox/Research"
     echo ""
     exit 1
 fi
