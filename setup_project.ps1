@@ -158,7 +158,7 @@ INSERT LINK
 ```
 This repository is linked to Overleaf. The workflow is:
 
-1. Edit `.tex` files in `Paper Github/...`
+1. Edit `.tex` files in `Paper/...`
 2. `git add` + `git commit` + `git push` to GitHub
 3. Changes automatically sync to Overleaf
 
