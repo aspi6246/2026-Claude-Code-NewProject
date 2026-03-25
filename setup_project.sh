@@ -8,12 +8,13 @@
 #   bash setup_project.sh <project-name> [destination-path]
 #
 # Examples:
-#   bash setup_project.sh Oil-Gas-Production
-#   bash setup_project.sh Oil-Gas-Production ~/Dropbox/Research
+#   bash setup_project.sh My-New-Paper
+#   bash setup_project.sh My-New-Paper ~/Dropbox/Research
 #
 # If no destination path is given, the project is created in
 # the current working directory.
 # ============================================================
+ 
 
 set -e
 
