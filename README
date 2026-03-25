@@ -9,7 +9,7 @@ This repo provides two things:
 ## What's in This Repo
 
 ```
-├── README.md                  # This file
+├── README                     # This file
 ├── setup_project.ps1          # Setup script for Windows (PowerShell)
 ├── setup_project.sh           # Setup script for Mac/Linux (Bash)
 └── PowerShell_Setup_Guide.md  # Detailed step-by-step Windows walkthrough
@@ -53,7 +53,7 @@ Type `Y` when prompted.
 
 **PowerShell (Windows):**
 ```powershell
-& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\YourName\Dropbox\1. Projects with Claude access"
 ```
 
 **Bash (Mac/Linux):**
@@ -125,7 +125,7 @@ You customise this for each project by filling in the placeholder text (`XXXX`, 
 ## Requirements
 
 - Git
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
+- Claude Code
 - **Windows:** PowerShell 
 - **Mac/Linux:** Bash 
 
@@ -133,7 +133,4 @@ You customise this for each project by filling in the placeholder text (`XXXX`, 
 
 If you're new to Git and the command line, see `PowerShell_Setup_Guide.md` for a step-by-step guide covering everything from installing Git to creating your first project.
 
-## Contributing
-
-This is a personal toolkit shared publicly. If you have suggestions or find it useful, feel free to open an issue or fork it.
 
