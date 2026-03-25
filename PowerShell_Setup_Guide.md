@@ -25,7 +25,7 @@ Still in PowerShell, run these two commands (replace with your real name and ema
 
 ```powershell
 git config --global user.name "Your Name"
-git config --global user.email "your.email@uts.edu.au"
+git config --global user.email "your.email@example.com"
 ```
 
 ### Step 3: Allow PowerShell to run scripts
@@ -44,18 +44,18 @@ It will ask you to confirm — type `Y` and press Enter. This allows you to run 
 git clone https://github.com/aspi6246/2026-Claude-Code-NewProject.git "$HOME\Templates\claude-tools"
 ```
 
-This downloads the repo to `C:\Users\163178\Templates\claude-tools\`.
+This downloads the repo to `C:\Users\YourName\Templates\claude-tools\`.
 
-### Step 5: Put the template files into the repo
+### Step 5: Verify the template files are in place
 
-Using File Explorer, navigate to `C:\Users\163178\Templates\claude-tools\` and arrange the files so the structure looks like this:
+After cloning, the repo should already contain everything you need. You can verify by navigating to the folder in File Explorer:
 
 ```
 claude-tools\
-├── README.md
+├── README
 ├── PowerShell_Setup_Guide.md
 ├── setup_project.ps1
-└── setup_project.sh
+├── setup_project.sh
 └── templates\
     ├── CLAUDE.md
     └── gitignore_template
@@ -87,11 +87,11 @@ Search "PowerShell" in the Windows Start menu and open it.
 ### Step 8: Run the setup script
 
 ```powershell
-& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "My-New-Paper" -DestPath "C:\Users\YourName\Dropbox\Research"
 ```
 
 This creates the full project at:
-`C:\Users\163178\Dropbox\1. Projects with Claude access\My-New-Paper\`
+`C:\Users\YourName\Dropbox\Research\My-New-Paper\`
 
 with all folders, CLAUDE.md, README.md, and .gitignore ready to go.
 
@@ -104,12 +104,12 @@ Open `CLAUDE.md` in the new project folder (RStudio, VS Code, or even Notepad al
 - Every `AUTHOR_NAME` with your name
 - Every `INSERT` with actual file paths
 
-Do the same for `README.md`.
+Do the same for `README.md`. Or have Claude do it for you in a new session.
 
 ### Step 10: Initialise Git
 
 ```powershell
-cd "C:\Users\163178\Dropbox\1. Projects with Claude access\My-Oil-Gas-Paper"
+cd "C:\Users\YourName\Dropbox\Research\My-New-Paper"
 git init
 git add -A
 git commit -m "Initial project structure"
@@ -131,30 +131,14 @@ Every time you start a new project, it's just:
 
 ```powershell
 # Create the project
-& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "New-Project-Name" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+& "$HOME\Templates\claude-tools\setup_project.ps1" -ProjectName "New-Project-Name" -DestPath "C:\Users\YourName\Dropbox\Research"
 
 # Fill in CLAUDE.md and README.md placeholders in your text editor
 
 # Initialise Git
-cd "C:\Users\163178\Dropbox\1. Projects with Claude access\New-Project-Name"
+cd "C:\Users\YourName\Dropbox\Research\New-Project-Name"
 git init; git add -A; git commit -m "Initial project structure"
 
 # Start working
 claude
 ```
-
----
-
-## Troubleshooting
-
-**"running scripts is disabled on this system"**
-You skipped Step 3. Run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
-
-**"git is not recognized"**
-Git isn't installed, or PowerShell was already open when you installed it. Install Git (Step 1), then close and reopen PowerShell.
-
-**"claude is not recognized"**
-Claude Code isn't installed. See https://docs.anthropic.com/en/docs/claude-code/overview for installation instructions.
-
-**The script says the directory already exists**
-You've already created a project with that name in that location. Either choose a different name or delete the existing folder first.
