@@ -1,6 +1,6 @@
 # Step-by-Step: Setting Up a New Research Project on Windows (PowerShell)
 
-Everything below uses **PowerShell**, which is already on your computer. No extra software needed beyond Git and Claude Code.
+Everything below uses **PowerShell**. No extra software needed beyond Git and Claude Code.
 
 ---
 
