@@ -132,6 +132,6 @@ If Claude creates a new script, AUTHOR_NAME will assign its number and position 
 - **Primary dataset**: `INSERT FILE PATH`
 - **Code**: R Markdown files in `Code/`
 - **Paper**: LaTeX in `Paper/XXXX`
-- **Key libraries**: fixest, arrow, data.table
+- **Key libraries**: fixest, arrow, dplyr
 - **Full directory documentation**: See `README.md`
 
