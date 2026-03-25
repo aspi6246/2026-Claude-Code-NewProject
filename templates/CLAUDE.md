@@ -85,7 +85,7 @@ If Claude creates a new script, AUTHOR_NAME will assign its number and position 
 |--------------------|-----------------------------|----------------------|
 | Tables             | `Output/Tables/`            | LaTeX (`.tex`), CSV  |
 | Figures            | `Output/Figures/`           | PDF preferred, PNG   |
-| Claude scripts     | `Code/`                     | `Claude_XXXX.Rmd`    |
+| Scripts            | `Code/`                     | `Claude_XXXX.Rmd`    |
 | Purled scripts     | `Code/_Claude Scripts/`     | `Claude_XXXX.R`      |
 | Session logs       | `Code/_Claude Logs/`        | Markdown (`.md`)     |
 
