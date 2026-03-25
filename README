@@ -2,7 +2,7 @@
 
 This repo provides two things:
 
-1. **A `CLAUDE_TEMPLATE.md`** — a template for permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
+1. **A `CLAUDE.md`** — a template for permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
 
 2. **A project setup script** — available in both PowerShell (Windows) and Bash (Mac/Linux). It creates a standardised directory structure, copies in the template files, and gives you a clean starting point.
 
