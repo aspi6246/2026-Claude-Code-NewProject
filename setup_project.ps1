@@ -7,7 +7,7 @@
 #
 # Examples:
 #   .\setup_project.ps1 -ProjectName "Oil-Gas-Production"
-#   .\setup_project.ps1 -ProjectName "Oil-Gas-Production" -DestPath "C:\Users\163178\Dropbox\1. Projects with Claude access"
+#   .\setup_project.ps1 -ProjectName "Oil-Gas-Production" -DestPath "C:\Users\YourName\Dropbox\Research"
 #
 # If no destination path is given, the project is created in
 # the current directory.
@@ -207,3 +207,4 @@ Write-Host "  3. Open README.md and fill in the project details"
 Write-Host "  4. git init; git add -A; git commit -m 'Initial project structure'"
 Write-Host "  5. Start Claude Code: claude"
 Write-Host ""
+
