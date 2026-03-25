@@ -6,8 +6,8 @@
 #   .\setup_project.ps1 -ProjectName <name> [-DestPath <path>]
 #
 # Examples:
-#   .\setup_project.ps1 -ProjectName "Oil-Gas-Production"
-#   .\setup_project.ps1 -ProjectName "Oil-Gas-Production" -DestPath "C:\Users\YourName\Dropbox\Research"
+#   .\setup_project.ps1 -ProjectName "My-New-Paper"
+#   .\setup_project.ps1 -ProjectName "My-New-Paper" -DestPath "C:\Users\YourName\Dropbox\Research"
 #
 # If no destination path is given, the project is created in
 # the current directory.
@@ -151,7 +151,7 @@ Scripts run in numbered order:
 
 
 ## Paper Workflow
-The active paper lives in `Paper/`, which is a Git clone of:
+The active paper lives in `Paper Github/`, which is a Git clone of:
 
 ```
 INSERT LINK
@@ -207,4 +207,3 @@ Write-Host "  3. Open README.md and fill in the project details"
 Write-Host "  4. git init; git add -A; git commit -m 'Initial project structure'"
 Write-Host "  5. Start Claude Code: claude"
 Write-Host ""
-
