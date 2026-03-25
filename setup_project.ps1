@@ -151,7 +151,7 @@ Scripts run in numbered order:
 
 
 ## Paper Workflow
-The active paper lives in `Paper Github/`, which is a Git clone of:
+The active paper lives in `Paper/`, which is a Git clone of:
 
 ```
 INSERT LINK
