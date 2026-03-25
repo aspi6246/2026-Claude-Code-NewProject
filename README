@@ -1,14 +1,8 @@
-# Claude Code Tools and Notes for Empirical Research
+# Setting up a new research project
 
-Templates and scripts for setting up empirical research projects that work well with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview). Designed for academic researchers who want a reproducible project structure that maintains continuity across Claude Code sessions.
+This repo provides two things:
 
-## The Problem This Solves
-
-Claude Code sessions don't persist. Every time you start a new conversation, Claude has no memory of what happened in the last one. If your project doesn't have clear structure and documentation, you lose time re-explaining context, Claude makes conflicting decisions across sessions, and things quietly break.
-
-This repo provides two things to fix that:
-
-1. **A `CLAUDE_TEMPLATE.md`** — a set of permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
+1. **A `CLAUDE_TEMPLATE.md`** — a template for permanent instructions that Claude reads at the start of every session. It defines ground rules (don't touch raw data, don't delete files, always ask before acting), code conventions, and a progress log system that carries context across sessions.
 
 2. **A project setup script** — available in both PowerShell (Windows) and Bash (Mac/Linux). It creates a standardised directory structure, copies in the template files, and gives you a clean starting point.
 
@@ -71,23 +65,7 @@ This creates the full project directory structure, copies in the CLAUDE.md templ
 
 ### 5. Fill in the placeholders
 
-Open `CLAUDE.md` in the new project folder (RStudio, VS Code, or any text editor) and replace every `XXXX`, `AUTHOR_NAME`, and `INSERT` with the real project details. Do the same for `README.md`.
-
-### 6. Initialise Git and start working
-
-**PowerShell:**
-```powershell
-cd "C:\Users\163178\Dropbox\1. Projects with Claude access\My-New-Paper"
-git init; git add -A; git commit -m "Initial project structure"
-claude
-```
-
-**Bash:**
-```bash
-cd ~/Dropbox/Research/My-New-Paper
-git init && git add -A && git commit -m "Initial project structure"
-claude
-```
+Open `CLAUDE.md` in the new project folder (RStudio, VS Code, or any text editor) and replace every `XXXX`, `AUTHOR_NAME`, and `INSERT` with the real project details. Do the same for `README.md`. Or have Claude Code do this in a new session.
 
 Claude reads your CLAUDE.md automatically. You're working.
 
