@@ -46,7 +46,7 @@ fi
 
 # ---- Locate the template directory --------------------------
 # The script looks for the templates/ folder next to itself.
-# This is where CLAUDE.md and .gitignore_template live.
+# This is where CLAUDE.md and gitignore_template live.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TEMPLATE_DIR="$SCRIPT_DIR/templates"
